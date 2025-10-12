@@ -66,7 +66,6 @@ function drawWave() {
         ctx.clearRect(0, 0, width, height);
         x = 0;
         y = height / 2;
-        ctx.beginPath();
         ctx.moveTo(x, y);
     }
     counter = 0;
