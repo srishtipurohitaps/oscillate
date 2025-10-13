@@ -2,6 +2,8 @@ const input = document.getElementById('input');
 const audioCtx = new AudioContext();
 const gainNode = audioCtx.createGain();
 const oscillator = audioCtx.createOscillator();
+const color_picker = document.getElementById("color");
+const color_picker2 = document.getElementById("color2");
 let notenames = new Map();
 notenames.set("C", 261.6);
 notenames.set("D", 293.7);
@@ -93,6 +95,13 @@ function line() {
         ctx.stroke();
         return;
     }
+    
+    var gradient = ctx.createLinearGradient(0, 0, width, height);
+    gradient.addColorStop(0, color_picker.value);
+    gradient.addColorStop(1, color_picker2.value);
+    ctx.strokeStyle = gradient;
+    ctx.lineWidth = 2;
+    
     y = height / 2 + amplitude * Math.sin(x * 2 * Math.PI * freq * (0.5 * length));
     ctx.lineTo(x, y);
     ctx.stroke();
