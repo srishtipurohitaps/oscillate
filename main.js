@@ -4,6 +4,7 @@ const gainNode = audioCtx.createGain();
 const oscillator = audioCtx.createOscillator();
 const color_picker = document.getElementById("color");
 const color_picker2 = document.getElementById("color2");
+const vol_slider = document.getElementById('vol-slider');
 let notenames = new Map();
 notenames.set("C", 261.6);
 notenames.set("D", 293.7);
