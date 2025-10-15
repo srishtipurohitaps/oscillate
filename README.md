@@ -4,7 +4,7 @@ Oscillatte is a web app where users can type musical notes, listen to their tune
 
 ## Why I made this project
 
-I made Oscillatte because I wanted to combine my love for web coding, digital music, and creative visualizations. Most online music tools are either too simple or too complicated, and few let you see your music as actual animated art. I wanted something open, interactive, and fun—where anyone can express themselves without special equipment or software.
+I made Oscillatte because I wanted to combine my love for web coding, digital music, and creative visualizations. Most online music tools are either too simple or too complicated, and few let you see your music as actual animated art. I wanted something open, interactive, and fun, where anyone can express themselves without special equipment or software.
 
 ## How I made it
 
