@@ -9,6 +9,9 @@
 <body>
     <header>
         <h1>Oscillate: Oscillart by Srishti</h1>
+        <nav>
+            <a href="about.html">About</a>
+        </nav>
     </header>
     <main>
         <input type="text" id="input" placeholder="Type notes (e.g., CDEFG)">
@@ -22,36 +25,36 @@
             <label for="color2">End Color:</label>
             <input type="color" id="color2" value="#0000ff">
 
-            <label for = "random-color">Random Colors:</label>
-            <input type = "checkbox" id = "random-color">
+            <label for="random-color">Random Colors:</label>
+            <input type="checkbox" id="random-color">
 
-            <label for = "gradient-direction:">Gradient Direction:</label>
-            <select id = "gradient-direction">
-                <option value = "horizontal">Horizontal</option>
-                <option value = "vertical">Vertical</option>
-                <option value = "diagonal">Diagonal</option>
+            <label for="gradient-direction:">Gradient Direction:</label>
+            <select id="gradient-direction">
+                <option value="horizontal">Horizontal</option>
+                <option value="vertical">Vertical</option>
+                <option value="diagonal">Diagonal</option>
             </select>
 
-            <label for = "thickness-slider">Line Thickness:</label>
-            <input type = "range" min = "1" max = "10" value = "2" id = "thickness-slider">
-            <label for = "wave-select">Waveform:</label>
-            <select id = "wave-select">
-                <option value = "sine">Sine</option>
-                <option value = "square">Square</option>
-                <option value = "sawtooth">Sawtooth</option>
-                <option value = "triangle">Triangle</option>
+            <label for="thickness-slider">Line Thickness:</label>
+            <input type="range" min="1" max="10" value="2" id="thickness-slider">
+            <label for="wave-select">Waveform:</label>
+            <select id="wave-select">
+                <option value="sine">Sine</option>
+                <option value="square">Square</option>
+                <option value="sawtooth">Sawtooth</option>
+                <option value="triangle">Triangle</option>
             </select>
 
-            <label for = "bg-color">Background:</label>
-            <input type = "color" id = "bg-color" value = "#ffffff">
+            <label for="bg-color">Background:</label>
+            <input type="color" id="bg-color" value="#ffffff">
 
             <label for="vol-slider">Volume:</label>
-            <input type = "range" min = "1" max = "100" value = "100" id = "vol-slider">
+            <input type="range" min="1" max="100" value="100" id="vol-slider">
 
-            <label for = "speed-slider">Speed:</label>
-            <input type = "range" min = "1" max = "12" value = "6" id = "speed-slider">
+            <label for="speed-slider">Speed:</label>
+            <input type="range" min="1" max="12" value="6" id="speed-slider">
 
-            <button id = "record" onclick = "toggle()">Start Recording</button>
+            <button id="record" onclick="toggle()">Start Recording</button>
         </div>
     </main>
 </body>
