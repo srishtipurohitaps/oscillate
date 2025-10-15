@@ -8,14 +8,49 @@ const vol_slider = document.getElementById('vol-slider');
 const thickness_slider = document.getElementById('thickness-slider');
 const wave_select = document.getElementById('wave-select');
 const speed_slider = document.getElementById('speed-slider');
+
 let notenames = new Map();
 notenames.set("C", 261.6);
+notenames.set("C#", 277.2);
+notenames.set("Db", 277.2);
 notenames.set("D", 293.7);
+notenames.set("D#", 311.1);
+notenames.set("Eb", 311.1);
 notenames.set("E", 329.6);
 notenames.set("F", 349.2);
+notenames.set("F#", 370.0);
+notenames.set("Gb", 370.0);
 notenames.set("G", 392.0);
+notenames.set("G#", 415.3);
+notenames.set("Ab", 415.3);
 notenames.set("A", 440);
+notenames.set("A#", 466.2);
+notenames.set("Bb", 466.2);
 notenames.set("B", 493.9);
+notenames.set("C5", 523.3);
+notenames.set("C#5", 554.4);
+notenames.set("Db5", 554.4);
+notenames.set("D5", 587.3);
+notenames.set("D#5", 622.3);
+notenames.set("Eb5", 622.3);
+notenames.set("E5", 659.3);
+notenames.set("F5", 698.5);
+notenames.set("F#5", 740.0);
+notenames.set("Gb5", 740.0);
+notenames.set("G5", 784.0);
+notenames.set("G#5", 830.6);
+notenames.set("Ab5", 830.6);
+notenames.set("A5", 880.0);
+notenames.set("A#5", 932.3);
+notenames.set("Bb5", 932.3);
+notenames.set("B5", 987.8);
+notenames.set("C3", 130.8);
+notenames.set("D3", 146.8);
+notenames.set("E3", 164.8);
+notenames.set("F3", 174.6);
+notenames.set("G3", 196.0);
+notenames.set("A3", 220.0);
+notenames.set("B3", 246.9);
 
 oscillator.connect(gainNode);
 gainNode.connect(audioCtx.destination);
@@ -61,11 +96,11 @@ function handle() {
     audioCtx.resume();
     gainNode.gain.value = 0;
     reset = true;
-    var usernotes = String(input.value).toUpperCase();
+    var usernotes = String(input.value).toUpperCase().trim().split(/\s+/);
     noteslist = [];
     for (let i = 0; i < usernotes.length; i++) {
-        if (notenames.has(usernotes.charAt(i))) {
-            noteslist.push(notenames.get(usernotes.charAt(i)));
+        if (notenames.has(usernotes[i])) {
+            noteslist.push(notenames.get(usernotes[i]));
         }
     }
     length = noteslist.length;
@@ -129,7 +164,7 @@ function line() {
         gradient.addColorStop(0, color_picker.value);
         gradient.addColorStop(1, color_picker2.value);
     }
-    
+
     ctx.strokeStyle = gradient;
     ctx.lineWidth = thickness_slider.value;
     
