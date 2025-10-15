@@ -7,6 +7,7 @@ const color_picker2 = document.getElementById("color2");
 const vol_slider = document.getElementById('vol-slider');
 const thickness_slider = document.getElementById('thickness-slider');
 const wave_select = document.getElementById('wave-select');
+const speed_slider = document.getElementById('speed-slider');
 let notenames = new Map();
 notenames.set("C", 261.6);
 notenames.set("D", 293.7);
@@ -68,7 +69,7 @@ function handle() {
         }
     }
     length = noteslist.length;
-    timepernote = (length > 0) ? (6000 / length) : 1000;
+    timepernote = (length > 0) ? (6000 / length / speed_slider.value) : 1000;
     if (repeat) clearInterval(repeat);
     let j = 0;
     repeat = setInterval(() => {
@@ -88,6 +89,9 @@ function handle() {
 }
 
 function drawWave() {
+    const bgColor = document.getElementById('bg-color').value;
+    ctx.fillStyle = bgColor;
+    ctx.fillRect(0, 0, width, height);
     if (interval) clearInterval(interval);
     if (reset) {
         ctx.clearRect(0, 0, width, height);
@@ -117,8 +121,15 @@ function line() {
     else
         gradient = ctx.createLinearGradient(0, 0, width, height);
 
-    gradient.addColorStop(0, color_picker.value);
-    gradient.addColorStop(1, color_picker2.value);
+    const randomColor = document.getElementById('random-color').checked;
+    if (randomColor) {
+        gradient.addColorStop(0, '#' + Math.floor(Math.random()*16777215).toString(16));
+        gradient.addColorStop(1, '#' + Math.floor(Math.random()*16777215).toString(16));
+    } else {
+        gradient.addColorStop(0, color_picker.value);
+        gradient.addColorStop(1, color_picker2.value);
+    }
+    
     ctx.strokeStyle = gradient;
     ctx.lineWidth = thickness_slider.value;
     

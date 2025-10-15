@@ -22,6 +22,9 @@
             <label for="color2">End Color:</label>
             <input type="color" id="color2" value="#0000ff">
 
+            <label for = "random-color">Random Colors:</label>
+            <input type = "checkbox" id = "random-color">
+
             <label for = "gradient-direction:">Gradient Direction:</label>
             <select id = "gradient-direction">
                 <option value = "horizontal">Horizontal</option>
@@ -38,8 +41,16 @@
                 <option value = "sawtooth">Sawtooth</option>
                 <option value = "triangle">Triangle</option>
             </select>
+
+            <label for = "bg-color">Background:</label>
+            <input type = "color" id = "bg-color" value = "#ffffff">
+
+            <label for="vol-slider">Volume:</label>
+            <input type = "range" min = "1" max = "100" value = "100" id = "vol-slider">
+
+            <label for = "speed-slider">Speed:</label>
+            <input type = "range" min = "1" max = "12" value = "6" id = "speed-slider">
         </div>
-        <input type = "range" min = "1" max = "100" value = "100" id = "vol-slider">
     </main>
 </body>
 <script src="main.js"></script>
