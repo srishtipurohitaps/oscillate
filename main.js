@@ -96,11 +96,20 @@ function handle() {
     audioCtx.resume();
     gainNode.gain.value = 0;
     reset = true;
-    var usernotes = String(input.value).toUpperCase().trim().split(/\s+/);
+    var userinput = String(input.value).toUpperCase().trim();
     noteslist = [];
-    for (let i = 0; i < usernotes.length; i++) {
-        if (notenames.has(usernotes[i])) {
-            noteslist.push(notenames.get(usernotes[i]));
+    if (userinput.includes(" ")) {
+        var usernotes = userinput.split(/\s+/);
+        for (let i = 0; i < usernotes.length; i++) {
+            if (notenames.has(usernotes[i])) {
+                noteslist.push(notenames.get(usernotes[i]));
+            }
+        }
+    } else {
+        for (let i = 0; i < userinput.length; i++) {
+            if (notenames.has(userinput.charAt(i))) {
+                noteslist.push(notenames.get(userinput.charAt(i)));
+            }
         }
     }
     length = noteslist.length;
@@ -129,7 +138,6 @@ function drawWave() {
     ctx.fillRect(0, 0, width, height);
     if (interval) clearInterval(interval);
     if (reset) {
-        ctx.clearRect(0, 0, width, height);
         x = 0;
         y = height / 2;
         ctx.beginPath();
@@ -146,7 +154,6 @@ function line() {
         ctx.stroke();
         return;
     }
-    
     var direction = document.getElementById("gradient-direction").value;
     var gradient;
     if (direction === "horizontal")
@@ -155,7 +162,6 @@ function line() {
         gradient = ctx.createLinearGradient(0, 0, 0, height);
     else
         gradient = ctx.createLinearGradient(0, 0, width, height);
-
     const randomColor = document.getElementById('random-color').checked;
     if (randomColor) {
         gradient.addColorStop(0, '#' + Math.floor(Math.random()*16777215).toString(16));
@@ -164,12 +170,9 @@ function line() {
         gradient.addColorStop(0, color_picker.value);
         gradient.addColorStop(1, color_picker2.value);
     }
-
     ctx.strokeStyle = gradient;
     ctx.lineWidth = thickness_slider.value;
-    
     y = height / 2 + (vol_slider.value / 100) * 40 * Math.sin(x * 2 * Math.PI * freq * (0.5 * length));
-
     ctx.lineTo(x, y);
     ctx.stroke();
     x = x + 1;
