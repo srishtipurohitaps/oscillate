@@ -5,6 +5,8 @@ const oscillator = audioCtx.createOscillator();
 const color_picker = document.getElementById("color");
 const color_picker2 = document.getElementById("color2");
 const vol_slider = document.getElementById('vol-slider');
+const thickness_slider = document.getElementById('thickness-slider');
+const wave_select = document.getElementById('wave-select');
 let notenames = new Map();
 notenames.set("C", 261.6);
 notenames.set("D", 293.7);
@@ -16,7 +18,7 @@ notenames.set("B", 493.9);
 
 oscillator.connect(gainNode);
 gainNode.connect(audioCtx.destination);
-oscillator.type = "sine";
+oscillator.type = wave_select.value;
 oscillator.start();
 gainNode.gain.value = 0;
 
@@ -24,7 +26,6 @@ var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
 var width = ctx.canvas.width;
 var height = ctx.canvas.height;
-var amplitude = 40;
 var interval = null;
 var repeat = null;
 var counter = 0;
@@ -36,6 +37,11 @@ var noteslist = [];
 var length = 0;
 var timepernote = 0;
 var reset = false;
+var setting = null;
+
+wave_select.addEventListener('change', function() {
+    oscillator.type = wave_select.value;
+});
 
 function frequency(notePitch) {
     pitch = notePitch;
