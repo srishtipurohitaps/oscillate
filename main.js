@@ -74,6 +74,9 @@ var length = 0;
 var timepernote = 0;
 var reset = false;
 var setting = null;
+var blob, recorder = null;
+var chunks = [];
+var is_recording = false;
 
 wave_select.addEventListener('change', function() {
     oscillator.type = wave_select.value;
@@ -177,4 +180,44 @@ function line() {
     ctx.stroke();
     x = x + 1;
     counter++;
+}
+
+const recording_toggle = document.getElementById('record');
+
+function startRecording() {
+    const canvasStream = canvas.captureStream(20);
+    const audioDestination = audioCtx.createMediaStreamDestination();
+    gainNode.connect(audioDestination);
+    const combinedStream = new MediaStream();
+    canvasStream.getVideoTracks().forEach(track => combinedStream.addTrack(track));
+    audioDestination.stream.getAudioTracks().forEach(track => combinedStream.addTrack(track));
+    recorder = new MediaRecorder(combinedStream, { mimeType: "video/webm" });
+    recorder.ondataavailable = e => {
+        if (e.data.size > 0) {
+            chunks.push(e.data);
+        }
+    };
+    recorder.onstop = e => {
+        const blob = new Blob(chunks, { type: "video/webm" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'recording.webm';
+        a.click();
+        URL.revokeObjectURL(url);
+        chunks = [];
+    };
+    recorder.start();
+}
+
+function toggle() {
+    if (!is_recording) {
+        startRecording();
+        is_recording = true;
+        recording_toggle.innerHTML = "Stop recording";
+    } else {
+        recorder.stop();
+        is_recording = false;
+        recording_toggle.innerHTML = "Start recording";
+    }
 }
