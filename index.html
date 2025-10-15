@@ -14,63 +14,62 @@
         </nav>
     </header>
     <main>
-        <input type="text" id="input" placeholder="Type notes (e.g., CDEFG)">
-        
-        <div class="note-help" style="margin-bottom:1em;">
-            <b>Compatible Notes:</b>
-            <ul>
-                <li>
-                    C, C#, Db, D, D#, Eb, E, F, F#, Gb, G, G#, Ab, A, A#, Bb, B
-                </li>
-                <li>
-                    C3, D3, E3, F3, G3, A3, B3 (lower) – C5, C#5, Db5, D5, D#5, Eb5, E5, F5, F#5, Gb5, G5, G#5, Ab5, A5, A#5, Bb5, B5 (higher)
-                </li>
-                <li>
-                    Use spaces to separate notes: <i>C D# F G3 A5</i>
-                </li>
-            </ul>
-        </div>
+        <div class="main-controls">
+            <div class="center-input">
+                <input type="text" id="input" placeholder="Type notes (e.g., CDEFG)">
+                <button id="submit" onclick="handle()">Submit</button>
+            </div>
 
-        <button id="submit" onclick="handle()">Submit</button>
-        <div>
+            <div class="note-help">
+                <b>Compatible Notes:</b>
+                <ul>
+                    <li>C, C#, Db, D, D#, Eb, E, F, F#, Gb, G, G#, Ab, A, A#, Bb, B</li>
+                    <li>C3, D3, E3, F3, G3, A3, B3 (lower) – C5, C#5, Db5, D5, D#5, Eb5, E5, F5, F#5, Gb5, G5, G#5, Ab5, A5, A#5, Bb5, B5 (higher)</li>
+                    <li>Use spaces to separate notes: <i>C D# F G3 A5</i></li>
+                </ul>
+            </div>
+
             <canvas id="canvas" width="600" height="200"></canvas>
-        </div>
-        <div>
-            <label for="color1">Start Color:</label>
-            <input type="color" id="color" value="#ff0000">
-            <label for="color2">End Color:</label>
-            <input type="color" id="color2" value="#0000ff">
 
-            <label for="random-color">Random Colors:</label>
-            <input type="checkbox" id="random-color">
+            <div class="control-column">
+                <label for="color">Start Color:</label>
+                <input type="color" id="color" value="#ff0000">
 
-            <label for="gradient-direction:">Gradient Direction:</label>
-            <select id="gradient-direction">
-                <option value="horizontal">Horizontal</option>
-                <option value="vertical">Vertical</option>
-                <option value="diagonal">Diagonal</option>
-            </select>
+                <label for="color2">End Color:</label>
+                <input type="color" id="color2" value="#0000ff">
 
-            <label for="thickness-slider">Line Thickness:</label>
-            <input type="range" min="1" max="10" value="2" id="thickness-slider">
-            <label for="wave-select">Waveform:</label>
-            <select id="wave-select">
-                <option value="sine">Sine</option>
-                <option value="square">Square</option>
-                <option value="sawtooth">Sawtooth</option>
-                <option value="triangle">Triangle</option>
-            </select>
+                <label for="random-color">Random Colors:</label>
+                <input type="checkbox" id="random-color">
 
-            <label for="bg-color">Background:</label>
-            <input type="color" id="bg-color" value="#ffffff">
+                <label for="gradient-direction">Gradient Direction:</label>
+                <select id="gradient-direction">
+                    <option value="horizontal">Horizontal</option>
+                    <option value="vertical">Vertical</option>
+                    <option value="diagonal">Diagonal</option>
+                </select>
 
-            <label for="vol-slider">Volume:</label>
-            <input type="range" min="1" max="100" value="100" id="vol-slider">
+                <label for="thickness-slider">Line Thickness:</label>
+                <input type="range" min="1" max="10" value="2" id="thickness-slider">
 
-            <label for="speed-slider">Speed:</label>
-            <input type="range" min="1" max="12" value="6" id="speed-slider">
+                <label for="wave-select">Waveform:</label>
+                <select id="wave-select">
+                    <option value="sine">Sine</option>
+                    <option value="square">Square</option>
+                    <option value="sawtooth">Sawtooth</option>
+                    <option value="triangle">Triangle</option>
+                </select>
 
-            <button id="record" onclick="toggle()">Start Recording</button>
+                <label for="bg-color">Background:</label>
+                <input type="color" id="bg-color" value="#ffffff">
+
+                <label for="vol-slider">Volume:</label>
+                <input type="range" min="1" max="100" value="100" id="vol-slider">
+
+                <label for="speed-slider">Speed:</label>
+                <input type="range" min="1" max="12" value="6" id="speed-slider">
+
+                <button id="record" onclick="toggle()">Start Recording</button>
+            </div>
         </div>
     </main>
 </body>
