@@ -15,6 +15,22 @@
     </header>
     <main>
         <input type="text" id="input" placeholder="Type notes (e.g., CDEFG)">
+        
+        <div class="note-help" style="margin-bottom:1em;">
+            <b>Compatible Notes:</b>
+            <ul>
+                <li>
+                    C, C#, Db, D, D#, Eb, E, F, F#, Gb, G, G#, Ab, A, A#, Bb, B
+                </li>
+                <li>
+                    C3, D3, E3, F3, G3, A3, B3 (lower) – C5, C#5, Db5, D5, D#5, Eb5, E5, F5, F#5, Gb5, G5, G#5, Ab5, A5, A#5, Bb5, B5 (higher)
+                </li>
+                <li>
+                    Use spaces to separate notes: <i>C D# F G3 A5</i>
+                </li>
+            </ul>
+        </div>
+
         <button id="submit" onclick="handle()">Submit</button>
         <div>
             <canvas id="canvas" width="600" height="200"></canvas>
