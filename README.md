@@ -29,3 +29,5 @@ I learned a lot about browser APIs, user experience, and how small details like 
 5. When you stop recording, a `.webm` file will automatically download.
 
 Supported notes include C, D, E, F, G, A, B, plus sharps, flats, and octaves like C3 or A5. Use spaces to separate notes.
+
+[![Athena Award Badge](https://img.shields.io/endpoint?url=https%3A%2F%2Faward.athena.hackclub.com%2Fapi%2Fbadge)](https://award.athena.hackclub.com?utm_source=readme)
