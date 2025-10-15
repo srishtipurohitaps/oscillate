@@ -45,10 +45,15 @@ wave_select.addEventListener('change', function() {
 
 function frequency(notePitch) {
     pitch = notePitch;
-    gainNode.gain.setValueAtTime(100, audioCtx.currentTime);
+    gainNode.gain.setValueAtTime(vol_slider.value / 100, audioCtx.currentTime);
+    if (setting) clearInterval(setting);
     oscillator.frequency.setValueAtTime(pitch, audioCtx.currentTime);
-    gainNode.gain.setValueAtTime(0, audioCtx.currentTime + timepernote / 1000 * 0.9);
+    setting = setInterval(() => {gainNode.gain.value = vol_slider.value / 100}, 1);
     freq = pitch / 10000;
+    setTimeout(() => {
+        clearInterval(setting);
+        gainNode.gain.value = 0;
+    }, timepernote - 100);
 }
 
 function handle() {
@@ -103,13 +108,22 @@ function line() {
         return;
     }
     
-    var gradient = ctx.createLinearGradient(0, 0, width, height);
+    var direction = document.getElementById("gradient-direction").value;
+    var gradient;
+    if (direction === "horizontal")
+        gradient = ctx.createLinearGradient(0, 0, width, 0);
+    else if (direction === "vertical")
+        gradient = ctx.createLinearGradient(0, 0, 0, height);
+    else
+        gradient = ctx.createLinearGradient(0, 0, width, height);
+
     gradient.addColorStop(0, color_picker.value);
     gradient.addColorStop(1, color_picker2.value);
     ctx.strokeStyle = gradient;
-    ctx.lineWidth = 2;
+    ctx.lineWidth = thickness_slider.value;
     
-    y = height / 2 + amplitude * Math.sin(x * 2 * Math.PI * freq * (0.5 * length));
+    y = height / 2 + (vol_slider.value / 100) * 40 * Math.sin(x * 2 * Math.PI * freq * (0.5 * length));
+
     ctx.lineTo(x, y);
     ctx.stroke();
     x = x + 1;
