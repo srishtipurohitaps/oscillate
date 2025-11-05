@@ -29,11 +29,3 @@ I learned a lot about browser APIs, user experience, and how small details like 
 5. When you stop recording, a `.webm` file will automatically download.
 
 Supported notes include C, D, E, F, G, A, B, plus sharps, flats, and octaves like C3 or A5. Use spaces to separate notes.
-
-<div align="center">
-  <a href="https://moonshot.hackclub.com" target="_blank">
-    <img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/35ad2be8c916670f3e1ac63c1df04d76a4b337d1_moonshot.png" 
-         alt="This project is part of Moonshot, a 4-day hackathon in Florida visiting Kennedy Space Center and Universal Studios!" 
-         style="width: 100%;">
-  </a>
-</div>
