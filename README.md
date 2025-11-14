@@ -20,7 +20,7 @@ The hardest part was getting the audio and visual components to sync smoothly. M
 
 I learned a lot about browser APIs, user experience, and how small details like colors and alignment really affect how people feel using a creative tool. Most of all, I learned that testing with real input and getting feedback early is crucial.
 
-## How to use Oscillatte
+## How to use Oscillate
 
 1. Type out notes such as `C D E F G` in the input box.
 2. Press "Submit" to play the notes and watch the art animate.
