@@ -1,14 +1,14 @@
-# Oscillatte: Waveform Art & Music Lab
+# Oscillate: Waveform Art & Music Lab
 
-Oscillatte is a web app where users can type musical notes, listen to their tune, watch animated waveforms, customize the visuals, and record their creation as a video. It’s a place to experiment with both art and music directly in your browser.
+Oscillate is a web app where users can type musical notes, listen to their tune, watch animated waveforms, customize the visuals, and record their creation as a video. It’s a place to experiment with both art and music directly in your browser.
 
 ## Why I made this project
 
-I made Oscillatte because I wanted to combine my love for web coding, digital music, and creative visualizations. Most online music tools are either too simple or too complicated, and few let you see your music as actual animated art. I wanted something open, interactive, and fun, where anyone can express themselves without special equipment or software.
+I made Oscillate because I wanted to combine my love for web coding, digital music, and creative visualizations. Most online music tools are either too simple or too complicated, and few let you see your music as actual animated art. I wanted something open, interactive, and fun, where anyone can express themselves without special equipment or software.
 
 ## How I made it
 
-I built Oscillatte with HTML, CSS, and JavaScript. The main features use:
+I built Oscillate with HTML, CSS, and JavaScript. The main features use:
 - The Web Audio API (for generating sound)
 - The Canvas API (for drawing waveforms and animations)
 - The MediaRecorder API (to record both audio and visuals at once)
